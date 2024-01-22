@@ -1,6 +1,6 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
-import { LinkedinFilled, InstagramFilled, GithubFilled } from '@ant-design/icons'
+import SocialLinks from './SocialLinks'
 
 const Header = () => {
     const pages = [
@@ -49,23 +49,7 @@ const Header = () => {
                                 )
                             })}
                         </ul>
-                        <ul className="social-links">
-                            <li>
-                                <a href="/">
-                                    <GithubFilled />
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/">
-                                    <LinkedinFilled />
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/">
-                                    <InstagramFilled />
-                                </a>
-                            </li>
-                        </ul>
+                        <SocialLinks />
                     </nav>
                 </div>
             </header>

@@ -35,9 +35,22 @@ const About = () => {
                                     </Row>
                                     <ul className="about-ul">
                                         <li>
+                                            <ul>
+                                                <li>Dynamic functions</li>
+                                                <li>Portfolio</li>
+                                            </ul>
                                             <h3 className="theme-h3">Editor CMS</h3>
                                             <p className="theme-p">Advanced CMS for managing your own entries and writing articles and portfolio.</p>
-                                            <Link to='/'>Start Discovery <RightOutlined /></Link>
+                                            <Link className='hover-link' to='/'>Start Discovery <RightOutlined /></Link>
+                                        </li>
+                                        <li>
+                                            <ul>
+                                                <li>Dynamic functions</li>
+                                                <li>Portfolio</li>
+                                            </ul>
+                                            <h3 className="theme-h3">Without Development</h3>
+                                            <p className="theme-p">Create sections for a site without any programming knowledge. Basic design knowledge is enough.</p>
+                                            <Link className='hover-link' to='/'>Check portfolio <RightOutlined /></Link>
                                         </li>
                                     </ul>
                                 </div>
