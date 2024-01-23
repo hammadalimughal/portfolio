@@ -3,6 +3,7 @@ import Homebanner from '../components/Homebanner'
 import About from '../components/About'
 import AquireCustomer from '../components/AquireCustomer'
 import CreatingPortfolio from '../components/CreatingPortfolio'
+import transition from '../components/transition'
 
 const Home = () => {
   return (
@@ -15,4 +16,5 @@ const Home = () => {
   )
 }
 
-export default Home
+export default transition(Home)
+// export default Home

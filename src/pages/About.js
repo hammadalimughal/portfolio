@@ -3,6 +3,7 @@ import Banner from '../components/Banner'
 import AboutComp from '../components/About';
 import AboutAgency from '../components/AboutAgency';
 import CreatingPortfolio from '../components/CreatingPortfolio';
+import transition from '../components/transition';
 
 
 const About = () => {
@@ -16,4 +17,4 @@ const About = () => {
   )
 }
 
-export default About
+export default transition(About)
