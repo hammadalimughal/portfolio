@@ -17,10 +17,6 @@ const Header = () => {
             path: '/portfolio'
         },
         {
-            title: 'Our Policy',
-            path: '/policy'
-        },
-        {
             title: 'Contact',
             path: '/contact'
         }
@@ -36,12 +32,12 @@ const Header = () => {
                                     <li>
                                         <NavLink
                                             to={page.path}
-                                            className={({ isActive, isPending, isTransitioning }) => [
-                                                //   isPending ? "pending" : "",
-                                                isActive ? "active" : "",
-                                                //   isTransitioning ? "transitioning" : "",
-                                            ].join(" ")
-                                            }
+                                            // className={({ isActive, isPending, isTransitioning }) => [
+                                            //     //   isPending ? "pending" : "",
+                                            //     isActive ? "active" : "",
+                                            //     //   isTransitioning ? "transitioning" : "",
+                                            // ].join(" ")
+                                            // }
                                         >
                                             {page.title}
                                         </NavLink>

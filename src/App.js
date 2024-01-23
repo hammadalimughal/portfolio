@@ -1,24 +1,36 @@
-import React from 'react'
-import './App.css'
-import Header from './components/Header'
-import { Route, Routes, useLocation } from 'react-router-dom'
-import Home from './pages/Home'
-import Footer from './components/Footer'
-import About from './pages/About'
+import React, { useEffect, useContext } from 'react'
 import { AnimatePresence } from 'framer-motion'
-import Portfolio from './Portfolio'
+import { Route, Routes, useLocation } from 'react-router-dom'
+import LoadingBar from 'react-top-loading-bar'
+import { LoaderContext } from './context/Loading'
+import './App.css'
+import Home from './pages/Home'
+import About from './pages/About'
+import Portfolio from './pages/Portfolio'
 import Contact from './pages/Contact'
-
+import Header from './components/Header'
+import Footer from './components/Footer'
 
 const App = () => {
+  const { loading, setLoading } = useContext(LoaderContext)
   const location = useLocation()
-  React.useEffect(() => {
+  useEffect(() => {
     if (typeof window !== 'undefined') {
       window.scrollTo(0, 0);
     }
   }, [location]);
+  useEffect(() => {
+    setLoading(20);
+  }, [location]);
+
   return (
     <>
+      <LoadingBar
+        color='#dffb6d'
+        height={3}
+        progress={loading}
+        onLoaderFinished={() => setLoading(0)}
+      />
       <Header />
       <AnimatePresence mode='wait'>
         <Routes location={location} key={location.pathname} >

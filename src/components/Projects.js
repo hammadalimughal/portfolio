@@ -79,11 +79,11 @@ const Projects = () => {
               }}
               modules={[Pagination]}
               slidesPerView={3}
-              spaceBetween={5}
+              spaceBetween={10}
             >
               {projectData.map((project, ind) => {
                 return (
-                  <SwiperSlide>
+                  <SwiperSlide key={ind}>
                     <div className="project-item">
                       <h4 className="theme-h4">{project.title}</h4>
                       <img className='img-fluid' src={project.img} alt={project.title} />
