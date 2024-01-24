@@ -43,7 +43,7 @@ const Footer = () => {
                                 <ul className='contact-info'>
                                     <li>
                                         <strong>Circle Solutions</strong>
-                                        <a className='hover-link' href="/">Based in New York United Stated</a>
+                                        <Link className='hover-link' to="/contact">Ready to Start <br /> Your Project?</Link>
                                     </li>
                                     <li>
                                         <a className='hover-link' href="mailto:hammad19ali@gmail.com">hammad19ali@gmail.com</a>

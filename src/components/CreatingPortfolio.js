@@ -8,7 +8,7 @@ const CreatingPortfolio = () => {
         <>
             <section className='creating-portfolio'>
                 <div className="container-stretch">
-                    <Link className="content-wrapper">
+                    <Link className="content-wrapper" to='/contact'>
                         <Link className='hover-link'>Start with Solution <LineOutlined /></Link>
                         <Row style={{
                             justifyContent: 'space-between',

@@ -21,7 +21,7 @@ const App = () => {
   }, [location]);
   useEffect(() => {
     setLoading(20);
-  }, [location]);
+  }, [location.pathname]);
 
   return (
     <>

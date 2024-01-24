@@ -1,13 +1,40 @@
-import { Col, Row } from 'antd'
-import React from 'react'
+import React, { useState } from 'react'
+import { Col, Row, message } from 'antd'
 import contactImg from '../images/contact-form.avif'
 import FloatingField from './FloatingField'
 import MessageField from './MessageField'
-import { RightOutlined } from '@ant-design/icons'
+import { RightOutlined, LoadingOutlined } from '@ant-design/icons'
 
 const ContactForm = () => {
+    const [loading, setLoading] = useState(false)
+    const [formData, setFormData] = useState({
+        name: '',
+        email: '',
+        phone: '',
+        message: '',
+    })
+    const [messageApi, contextHolder] = message.useMessage();
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        setLoading(true)
+        messageApi.open({
+            key: 'updatable',
+            type: 'loading',
+            content: 'Submitting...',
+        });
+        setTimeout(() => {
+            messageApi.open({
+                key: 'updatable',
+                type: 'success',
+                content: 'Submitted!',
+                duration: 2,
+            });
+            setLoading(false)
+        }, 1000);
+    }
     return (
         <>
+            {contextHolder}
             <section className='contact-form'>
                 <div className="container">
                     <Row gutter={100}>
@@ -26,11 +53,13 @@ const ContactForm = () => {
                             <div className="padding-y">
                                 <h2 className="theme-h2">Contact Form</h2>
                                 <p className="theme-p">Describe precisely the scope of work and cooperation with Ultravision — it will help understand your expectations and adjust the price list.</p>
-                                <FloatingField placeholder="Your Full Name *"  />
-                                <FloatingField placeholder="Your Email *"  />
-                                <FloatingField placeholder="Your Phone *"  />
-                                <MessageField placeholder="Your Message *"/>
-                                <button className='contact-aquire' to="/contact" type='submit'><span>Send Message</span> <RightOutlined /> </button>
+                                <form onSubmit={handleSubmit} method="post">
+                                    <FloatingField formData={formData} setFormData={formData} name="name" placeholder="Your Full Name *" />
+                                    <FloatingField formData={formData} setFormData={formData} name="email" placeholder="Your Email *" />
+                                    <FloatingField formData={formData} setFormData={formData} name="phone" placeholder="Your Phone *" />
+                                    <MessageField formData={formData} setFormData={formData} name="message" placeholder="Your Message *" />
+                                    <button className='contact-aquire' to="/contact" type='submit'><span>Send Message</span> {loading ? <LoadingOutlined /> : <RightOutlined />} </button>
+                                </form>
                             </div>
                         </Col>
                     </Row>
