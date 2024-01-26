@@ -503,6 +503,9 @@ header nav .nav-links li a.active::before {
   margin: 100px auto 0;
   z-index: 1;
 }
+.home-banner .img-wrapper .my-img{
+  overflow: hidden;
+}
 
 /* .home-banner .img-wrapper::before {
   content: '';
