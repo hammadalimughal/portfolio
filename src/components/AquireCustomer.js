@@ -12,45 +12,45 @@ const AquireCustomer = () => {
                     <Row style={{
                         alignItems: 'center',
                         justifyContent: 'space-between'
-                    }} gutter={30}>
-                        <Col span={11}>
-                            <h2 className="theme-h2">Acquire new customers thanks to the list of orders</h2>
-                            <p className="theme-p">Share your work with clients and invite your employees to edit. Everyone can have their own account.</p>
+                    }} gutter={[30,30]}>
+                        <Col lg={11}>
+                            <h2 className="theme-h2">Why Choose Hammad for Mobile Solutions</h2>
+                            <p className="theme-p">Hammad’s expertise ensures that your mobile applications meet and exceed user expectations, whether it's individual apps or part of an integrated cross-platform solution.</p>
                         </Col>
-                        <Col span={12}>
+                        <Col lg={12}>
                             <img className='aquire-img img-fluid' src={aquire} alt="" />
                         </Col>
                     </Row>
                     <div className='aquire-ul'>
                         <div className='aquire-item'>
-                            <Row>
-                                <Col span={10}>
-                                    <h3 className="theme-h3">Design <br /> Immplementation</h3>
+                        <Row style={{alignItems: 'center'}}>
+                                <Col md={10} xs={21}>
+                                    <h3 className="theme-h3">Skills <br /> Overview</h3>
                                 </Col>
-                                <Col span={2}>
+                                <Col md={2} xs={3}>
                                     <span className="number">01</span>
                                 </Col>
-                                <Col span={12}>
-                                    <p>The implementation of projects from your graphics program is simple and quick. Our clients create advanced design system.</p>
+                                <Col md={12} xs={24}>
+                                    <p>Hammad specializes in designing user-friendly interfaces using React JS, engineering scalable backend solutions using Node JS, and building seamless cross-platform mobile applications using React Native.</p>
                                 </Col>
                             </Row>
                         </div>
                         <div className='aquire-item'>
-                            <Row>
-                                <Col span={10}>
-                                    <h3 className="theme-h3">Design from scratch</h3>
+                            <Row style={{alignItems: 'center'}}>
+                                <Col md={10} xs={21}>
+                                    <h3 className="theme-h3">Portfolio <br /> Highlights</h3>
                                 </Col>
-                                <Col span={2}>
+                                <Col md={2} xs={3}>
                                     <span className="number">02</span>
                                 </Col>
-                                <Col span={12}>
-                                    <p>We create projects created from scratch, tailored to customer expectations and adapted to all mobile devices with adaptation to the good feeling of use.</p>
+                                <Col md={12} xs={24}>
+                                    <p>Explore Hammad’s portfolio to witness his expertise in action. From responsive web interfaces to feature-rich mobile apps, Hammad’'s projects showcase his ability to turn ideas into reality.</p>
                                 </Col>
                             </Row>
                         </div>
                     </div>
                     <Row style={{justifyContent: 'flex-end'}}>
-                        <Col span={12}>
+                        <Col md={12} xs={24}>
                             <p className="theme-p">Check out our previous projects available in Portfolio and see for yourself the possibilities and advantages.</p>
                             <Link className='contact-aquire' to="/contact"><span>Contact now</span> <RightOutlined /> </Link>
                         </Col>

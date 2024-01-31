@@ -1,24 +1,77 @@
-import { Col, Row } from 'antd'
-import React from 'react'
+import { Col, Row, message } from 'antd'
+import React, { useState, useEffect, useContext } from 'react'
 import { Link, NavLink } from 'react-router-dom'
-import { RightOutlined } from '@ant-design/icons'
+import { RightOutlined, SendOutlined, LoadingOutlined } from '@ant-design/icons'
+import { UserInfoContext } from '../context/UserInfo'
 import SocialLinks from './SocialLinks'
 
 const Footer = () => {
+    const [loading, setLoading] = useState(false)
+    const [formData, setFormData] = useState({
+        email: ''
+    })
+    const { userInfo } = useContext(UserInfoContext)
+    useEffect(() => {
+        setFormData({
+            ...formData,
+            ipAddress: userInfo?.ipAddress,
+            city: userInfo?.city,
+            country: userInfo?.country,
+            continent: userInfo?.continent,
+            timeZone: userInfo?.timeZone,
+            location: `lat=${userInfo?.location?.latitude},long=${userInfo?.location?.longitude}`
+        })
+    }, [userInfo])
+    const [messageApi, contextHolder] = message.useMessage();
+    const handleSubmit = async (e) => {
+        e.preventDefault()
+        messageApi.open({
+            key: 'newsletter-submitting',
+            type: 'loading',
+            content: 'Submitting...',
+        });
+        const formRes = await fetch('https://formspree.io/f/xpzvqgvo', {
+            method: 'POST',
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(formData)
+        })
+        const formJson = await formRes.json()
+        if (formJson.error) {
+            messageApi.open({
+                key: 'form-submitting',
+                type: 'error',
+                content: formJson.error,
+            });
+        } else {
+            messageApi.open({
+                key: 'form-submitting',
+                type: 'success',
+                content: 'Submitted!',
+                duration: 2,
+            });
+        }
+        console.log('formJson', formJson)
+        setLoading(false)
+    }
     return (
         <>
+            {contextHolder}
             <footer>
                 <div className="footer-main">
                     <div className="container">
                         <Row style={{
                             justifyContent: 'space-between'
                         }}>
-                            <Col span={8}>
-                                <h3 className='theme-h3'>A modern agency with new solutions to creating website.</h3>
+                            <Col xl={8}>
+                                <div className="footr-lft">
+                                <h3 className='theme-h3'>A Creative Mind with Innovative Solutions for crafting Unique Websites/Apps.</h3>
                                 <p className="theme-p">A creative agency that creates new solutions for websites thanks to the new system.</p>
                                 <Link className='contact-aquire' to="/contact"><span>Contact now</span> <RightOutlined /> </Link>
+                                </div>
                             </Col>
-                            <Col span={4}>
+                            <Col xl={4} md={12} xs={24}>
                                 <h5 className="theme-h5">Menu</h5>
                                 <ul className="footer-links">
                                     <li>
@@ -38,11 +91,33 @@ const Footer = () => {
                                     </li>
                                 </ul>
                             </Col>
-                            <Col span={4}>
+                            <Col xl={5} md={12} xs={24}>
                                 <h5 className="theme-h5">Contact now</h5>
                                 <ul className='contact-info'>
                                     <li>
-                                        <strong>Circle Solutions</strong>
+                                        <form onSubmit={handleSubmit}>
+                                            <div className="newsletter-field">
+                                                <input
+                                                    type="email"
+                                                    placeholder='info@domain.com'
+                                                    value={formData.email}
+                                                    required
+                                                    onChange={(e) => {
+                                                        setFormData({
+                                                            ...formData,
+                                                            email: e.target.value
+                                                        })
+                                                    }}
+                                                />
+                                                <button type='submit'>
+                                                    {loading ? <LoadingOutlined /> : <SendOutlined />}
+
+                                                </button>
+                                            </div>
+                                        </form>
+                                    </li>
+                                    <li>
+                                        {/* <strong>Circle Solutions</strong> */}
                                         <Link className='hover-link' to="/contact">Ready to Start <br /> Your Project?</Link>
                                     </li>
                                     <li>

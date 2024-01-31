@@ -20,13 +20,13 @@ const AboutAgency = () => {
                         }} gutter={100}>
                             <Col span={14}>
                                 <div className="left-col content">
-                                    <h2 className="theme-h2">We encourage you to permanent cooperation.</h2>
+                                    <h2 className="theme-h2">My Dedication to Technological Revolution</h2>
                                     <ul className="agency-ul">
-                                        <li>We advise and consult with designers. We never use ready-made templates, and they are individually tailored to your intentions and goals you want to achieve.</li>
-                                        <li>Let's start with filling in our Brief and then we will contact you with specific proposals. We create logos and branding for companies.</li>
+                                        <li>I believe that technology has the potential to transform people's lives and reshape the world around us. I'm dedicated to changing the world, one line of code at a time, by using the MERN stack to its greatest potential and embracing the spirit of innovation.</li>
+                                        <li>Join me on this exciting journey as we build the future one digital experience at a time.</li>
                                     </ul>
                                     <div className="our-clients">
-                                        <h5 className="theme-h3 text-center">Our <span>Clients</span></h5>
+                                        <h5 className="theme-h3 text-center">My <span>Clients</span></h5>
                                         <Swiper
                                             slidesPerView={4}
                                             spaceBetween={30}
@@ -81,8 +81,8 @@ const AboutAgency = () => {
                                         <img className='img-fluid' src={aboutAgency} alt="" />
                                     </div>
                                     <h5 className="theme-h5">About Agency — </h5>
-                                    <h3 className="theme-h3">A modern agency with new solutions to creating website.</h3>
-                                    <h6 className="theme-emp">A creative agency that creates new solutions for websites thanks to the new system.</h6>
+                                    <h3 className="theme-h3">Why Collaborate with Me?</h3>
+                                    <h6 className="theme-emp">With a passion for problem-solving and a commitment to excellence, I am dedicated to exceeding client expectations. Partner with Hammad to turn your digital aspirations into reality and stay ahead in today's competitive landscape.</h6>
                                 </div>
                             </Col>
                         </Row>

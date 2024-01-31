@@ -9,13 +9,13 @@ const CreatingPortfolio = () => {
             <section className='creating-portfolio'>
                 <div className="container-stretch">
                     <Link className="content-wrapper" to='/contact'>
-                        <Link className='hover-link'>Start with Solution <LineOutlined /></Link>
+                        <Link className='hover-link'>Start with Me <LineOutlined /></Link>
                         <Row style={{
                             justifyContent: 'space-between',
                             alignItems: 'center'
                         }}>
                             <Col span={10}>
-                                <h2 className="theme-h2">Creating your ideal portfolio website.</h2>
+                                <h2 className="theme-h2">Create your ideal Modern website.</h2>
                             </Col>
                             <Col span={3}>
                                 <span className="icon"><RightOutlined /></span>

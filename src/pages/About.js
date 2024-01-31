@@ -18,7 +18,7 @@ const About = () => {
 
   return (
     <>
-      <Banner tagline="About Studio" title="Creative and <br /> modern <span>Agency.</span>" desc="We guarantee constant and quick contact as well as reliability during cooperation. Circle It is a modern web design agency. Professional websites made from scratch." />
+      <Banner tagline="About Me" title="Creative Web <br /><span>Expert.</span>" desc="Meet Hammad, a MERN Stack Developer with a passion for building dynamic and innovative digital solutions. Hammad leads the way in cutting-edge web and mobile development with his knowledge of React JS, Node JS, and React Native." />
       <AboutAgency />
       <AboutComp />
       <CreatingPortfolio />

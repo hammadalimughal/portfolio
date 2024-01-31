@@ -24,7 +24,7 @@ const Homebanner = () => {
                 <div className="container">
                     <div className="banner-content">
                         <Row style={{ alignItems: 'center', justifyContent: 'space-between' }}>
-                            <Col span={14}>
+                            <Col lg={14} xs={100}>
                                 <h5 className="theme-h5">Hammad Ali Mughal — </h5>
                                 {/* <h1 className="theme-h1">Build your great portfolio <span>website.</span></h1> */}
                                 <h1 className="theme-h1">
@@ -34,7 +34,7 @@ const Homebanner = () => {
                                 <p className="theme-p">Hello, I'm <strong>Hammad Ali</strong>, a passionate and results-driven <strong>Web & Mobile App</strong> Developer having <strong>3+</strong> years of experience. With a strong foundation in web development, I specialize inbuilding  <strong>modern and intuitive</strong> digital experiences.</p>
                                 <Link to="/contact" className="contact-aquire">Hire Me <RightOutlined /></Link>
                             </Col>
-                            <Col span={8}>
+                            <Col lg={8} xs={100}>
                                 <div className="img-wrapper">
                                     <img src={dots} alt="" className="dots" />
                                     <div className="my-img">

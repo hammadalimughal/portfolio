@@ -1,11 +1,13 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState, useContext } from 'react'
 import { Col, Row, message } from 'antd'
 import contactImg from '../images/contact-form.avif'
 import FloatingField from './FloatingField'
 import MessageField from './MessageField'
 import { RightOutlined, LoadingOutlined } from '@ant-design/icons'
+import { UserInfoContext } from '../context/UserInfo'
 
 const ContactForm = () => {
+    const { userInfo } = useContext(UserInfoContext)
     const [loading, setLoading] = useState(false)
     const [formData, setFormData] = useState({
         name: '',
@@ -13,24 +15,59 @@ const ContactForm = () => {
         phone: '',
         message: '',
     })
+    useEffect(() => {
+        setFormData({
+            ...formData,
+            ipAddress: userInfo?.ipAddress,
+            city: userInfo?.city,
+            country: userInfo?.country,
+            continent: userInfo?.continent,
+            timeZone: userInfo?.timeZone,
+            location: `lat=${userInfo?.location?.latitude},long=${userInfo?.location?.longitude}`
+        })
+    }, [userInfo])
     const [messageApi, contextHolder] = message.useMessage();
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault()
         setLoading(true)
         messageApi.open({
-            key: 'updatable',
+            key: 'form-submitting',
             type: 'loading',
             content: 'Submitting...',
         });
-        setTimeout(() => {
+        const formRes = await fetch('https://formspree.io/f/xeqyebyz', {
+            method: 'POST',
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(formData)
+        })
+        const formJson = await formRes.json()
+        // setTimeout(() => {
+        if (formJson.error) {
             messageApi.open({
-                key: 'updatable',
+                key: 'form-submitting',
+                type: 'error',
+                content: formJson.error,
+            });
+        } else {
+            messageApi.open({
+                key: 'form-submitting',
                 type: 'success',
                 content: 'Submitted!',
                 duration: 2,
             });
-            setLoading(false)
-        }, 1000);
+            setFormData({
+                ...formData,
+                name: '',
+                email: '',
+                phone: '',
+                message: '',
+            })
+        }
+        console.log('formJson', formJson)
+        setLoading(false)
+        // }, 1000);
     }
     return (
         <>
@@ -54,11 +91,11 @@ const ContactForm = () => {
                                 <h2 className="theme-h2">Contact Form</h2>
                                 <p className="theme-p">Describe precisely the scope of work and cooperation with Ultravision — it will help understand your expectations and adjust the price list.</p>
                                 <form onSubmit={handleSubmit} method="post">
-                                    <FloatingField formData={formData} setFormData={formData} name="name" placeholder="Your Full Name *" />
-                                    <FloatingField formData={formData} setFormData={formData} name="email" placeholder="Your Email *" />
-                                    <FloatingField formData={formData} setFormData={formData} name="phone" placeholder="Your Phone *" />
-                                    <MessageField formData={formData} setFormData={formData} name="message" placeholder="Your Message *" />
-                                    <button className='contact-aquire' to="/contact" type='submit'><span>Send Message</span> {loading ? <LoadingOutlined /> : <RightOutlined />} </button>
+                                    <FloatingField formData={formData} setFormData={setFormData} name="name" placeholder="Your Full Name *" />
+                                    <FloatingField formData={formData} setFormData={setFormData} name="email" placeholder="Your Email *" />
+                                    <FloatingField formData={formData} setFormData={setFormData} name="phone" placeholder="Your Phone *" />
+                                    <MessageField formData={formData} setFormData={setFormData} name="message" placeholder="Your Message *" />
+                                    <button className='contact-aquire' type='submit'><span>Send Message</span> {loading ? <LoadingOutlined /> : <RightOutlined />} </button>
                                 </form>
                             </div>
                         </Col>

@@ -16,7 +16,7 @@ const Contact = () => {
   }, [])
   return (
     <>
-      <Banner tagline="Contact with Agency" title="Contact now <br />send <span>message.</span>" desc="We are creating new modern and creative projects design — Please contact our consultant who will be happy to answer all your questions. Thanks!" />
+      <Banner tagline="Contact Me" title="Contact now <br />send <span>message.</span>" desc="I create new modern and creative projects design — Please contact me with your queries I will be happy to answer all your questions. Thanks!" />
       <ContactForm />
       <CreatingPortfolio />
     </>
