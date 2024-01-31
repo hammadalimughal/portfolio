@@ -15,7 +15,7 @@ import axios from 'axios';
 
 const App = () => {
   const { loading, setLoading } = useContext(LoaderContext)
-  const { ipAddress, setIpAddress, setUserInfo } = useContext(UserInfoContext)
+  const { ipAddress, setIpAddress, userInfo, setUserInfo } = useContext(UserInfoContext)
   const location = useLocation()
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -26,28 +26,43 @@ const App = () => {
     setLoading(20);
   }, [location.pathname]);
   useEffect(() => {
-    axios.get('https://api.ipify.org/?format=json').then(response => {
-      setIpAddress(response.data.ip)
-    })
-  }, [])
+    const fetchIpAddress = async () => {
+      try {
+        const response = await axios.get('https://api.ipify.org/?format=json');
+        setIpAddress(response.data.ip);
+      } catch (error) {
+        console.error('Error fetching IP address:', error.message);
+      }
+    };
+
+    fetchIpAddress();
+  }, []);
   useEffect(() => {
-    if (ipAddress) {
-      axios.get(`http://www.geoplugin.net/json.gp?ip=${ipAddress}`).then(userInfo => {
-        const userData = userInfo.data
-        setUserInfo({
-          ipAddress: ipAddress,
-          city: userData.geoplugin_city,
-          country: userData.geoplugin_countryName,
-          continent: userData.geoplugin_continentName,
-          timeZone: userData.geoplugin_timezone,
-          location: {
-            latitude: userData.geoplugin_latitude,
-            longitude: userData.geoplugin_longitude
-          }
-        })
-      })
-    }
-  }, [ipAddress])
+    const fetchUserInfo = async () => {
+      if (ipAddress) {
+        try {
+          const userInfoResponse = await axios.get(`https://ipinfo.io/${ipAddress}/json`);
+          const userData = userInfoResponse.data;
+
+          setUserInfo({
+            ipAddress: ipAddress,
+            city: userData.city,
+            region: userData.region,
+            organization: userData.org,
+            country: userData.country,
+            postal: userData.postal,
+            timeZone: userData.timezone,
+            location: userData.loc
+          });
+        } catch (error) {
+          console.error('Error fetching user info:', error.message);
+        }
+      }
+    };
+
+    fetchUserInfo();
+  }, [ipAddress]);
+
   return (
     <>
       <LoadingBar

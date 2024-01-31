@@ -17,7 +17,7 @@ const AboutAgency = () => {
                     <div className="wrapper">
                         <Row style={{
                             alignItems: 'center'
-                        }} gutter={100}>
+                        }} gutter={{ lg: 100, xs: 0 }}>
                             <Col lg={14} xs={24}>
                                 <div className="left-col content">
                                     <h2 className="theme-h2">My Dedication to Technological Revolution</h2>
@@ -75,7 +75,7 @@ const AboutAgency = () => {
                                     </div>
                                 </div>
                             </Col>
-                            <Col className='border-left-about about-agency-right' lg={14} xs={24}>
+                            <Col className='border-left-about about-agency-right' lg={10} xs={24}>
                                 <div className="content right-col">
                                     <div className="img-wrapper">
                                         <img className='img-fluid' src={aboutAgency} alt="" />

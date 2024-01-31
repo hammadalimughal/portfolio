@@ -17,9 +17,11 @@ const Footer = () => {
             ipAddress: userInfo?.ipAddress,
             city: userInfo?.city,
             country: userInfo?.country,
-            continent: userInfo?.continent,
+            region: userInfo?.region,
+            organization: userInfo?.organization,
+            postal: userInfo?.postal,
             timeZone: userInfo?.timeZone,
-            location: `lat=${userInfo?.location?.latitude},long=${userInfo?.location?.longitude}`
+            location: userInfo?.location
         })
     }, [userInfo])
     const [messageApi, contextHolder] = message.useMessage();
@@ -85,9 +87,6 @@ const Footer = () => {
                                     </li>
                                     <li>
                                         <NavLink to='/contact'>Contact</NavLink>
-                                    </li>
-                                    <li>
-                                        <NavLink to='/privacy'>Privacy Policy</NavLink>
                                     </li>
                                 </ul>
                             </Col>

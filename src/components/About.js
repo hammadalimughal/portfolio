@@ -1,10 +1,61 @@
 import { Col, Row } from 'antd'
-import React from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import aboutImg from '../images/about-img.jpg'
 import { Link } from 'react-router-dom'
 import { RightOutlined } from '@ant-design/icons'
+import $ from 'jquery'
+
+(function ($) {
+    $.fn.jQuerySimpleCounter = function (options) {
+        var settings = $.extend({
+            start: 0,
+            end: 100,
+            easing: 'swing',
+            duration: 400,
+            complete: ''
+        }, options);
+
+        var thisElement = $(this);
+
+        $({ count: settings.start }).animate({ count: settings.end }, {
+            duration: settings.duration,
+            easing: settings.easing,
+            step: function () {
+                var mathCount = Math.ceil(this.count);
+                thisElement.text(mathCount);
+            },
+            complete: settings.complete
+        });
+    };
+}($));
+
+function isScrolledIntoView(elem) {
+    var docViewTop = $(window).scrollTop();
+    var docViewBottom = docViewTop + $(window).height();
+
+    var elemTop = $(elem).offset().top;
+    var elemBottom = elemTop + $(elem).height();
+
+    return ((elemBottom <= docViewBottom) && (elemTop >= docViewTop));
+}
 
 const About = () => {
+    const counterPlayState = useRef(true)
+    useEffect(() => {
+        const playCounter = () => {
+            if (isScrolledIntoView($(".counter")[0]) && counterPlayState.current) {
+                counterPlayState.current = false
+                console.log('counterPlayState', counterPlayState.current)
+                $(".counter").each(function (ind, elem) {
+                    $(elem).jQuerySimpleCounter({ end: $(this).parent().data("counter-end"), duration: 1500 });
+                })
+            }
+        }
+        $(window).on('scroll', playCounter);
+        return () => {
+            $(window).off('scroll', playCounter);
+        };
+    }, [])
     return (
         <>
             <section className="about-section">
@@ -24,9 +75,9 @@ const About = () => {
                             </Col>
                             <Col xl={13}>
                                 <div className="right-col content">
-                                    <Row style={{ alignItems: 'center' }} gutter={{lg:20,xs:0}}>
+                                    <Row style={{ alignItems: 'center' }} gutter={{ lg: 20, xs: 0 }}>
                                         <Col md={12} xs={24}>
-                                            <span className="counter">100</span>
+                                            <span className="counter" data-counter-end="100">0</span>
                                         </Col>
                                         <Col md={12} xs={24}>
                                             <h3 className="theme-h3">Responsive Websites Designs</h3>

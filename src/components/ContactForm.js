@@ -21,9 +21,11 @@ const ContactForm = () => {
             ipAddress: userInfo?.ipAddress,
             city: userInfo?.city,
             country: userInfo?.country,
-            continent: userInfo?.continent,
+            region: userInfo?.region,
+            organization: userInfo?.organization,
+            postal: userInfo?.postal,
             timeZone: userInfo?.timeZone,
-            location: `lat=${userInfo?.location?.latitude},long=${userInfo?.location?.longitude}`
+            location: userInfo?.location
         })
     }, [userInfo])
     const [messageApi, contextHolder] = message.useMessage();
@@ -74,8 +76,8 @@ const ContactForm = () => {
             {contextHolder}
             <section className='contact-form'>
                 <div className="container">
-                    <Row gutter={100}>
-                        <Col className='border-right' span={11}>
+                    <Row gutter={{ lg: 100, xs: 0 }}>
+                        <Col className='border-right' lg={11} xs={24}>
                             <div className="padding-y">
                                 <div className="img-wrapper">
                                     <img className='img-fluid' src={contactImg} alt="" />
@@ -86,7 +88,7 @@ const ContactForm = () => {
                                 <p className="theme-p">All valuable questions and answers for everyone starting their adventure with investment in technologies.</p>
                             </div>
                         </Col>
-                        <Col span={13}>
+                        <Col lg={13} xs={24}>
                             <div className="padding-y">
                                 <h2 className="theme-h2">Contact Form</h2>
                                 <p className="theme-p">Describe precisely the scope of work and cooperation with Ultravision — it will help understand your expectations and adjust the price list.</p>

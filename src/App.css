@@ -1286,6 +1286,13 @@ header nav .nav-links li a.active::before {
   .footer-main .ant-row {
     gap: 40px;
   }
+  .projects-sec .projects-wrapper .project-item{
+    height: 45vw;
+  }
+  .contact-form .border-right{
+    border-right: 0;
+    border-bottom: 1px dashed rgba(255, 255, 255, 0.2);
+  }
 }
 
 @media only screen and (max-width: 767px) {
@@ -1354,8 +1361,9 @@ header nav .nav-links li a.active::before {
 
 @media only screen and (max-width: 575px) {
   :root {
-  --padding: 50px;
+    --padding: 50px;
   }
+
   .container {
     padding: 0 20px;
   }
@@ -1378,12 +1386,35 @@ header nav .nav-links li a.active::before {
     right: -30px;
     top: 100%;
     transform: translateY(-50%);
-}
+  }
 
   .about-section .counter {
     display: block;
     text-align: center;
     margin-bottom: 20px;
+  }
+
+  .home-banner .theme-h1 svg {
+    left: 110px;
+  }
+  .banner-main{
+    padding: calc(var(--padding) + 80px) 0 var(--padding);
+  }
+  .projects-sec .projects-wrapper .project-item{
+    height: 75vw;
+  }
+  .projects-sec .projects-wrapper .project-item .hvr-content{
+    padding: 25px 35px;
+  }
+  .projects-sec .projects-wrapper .project-item .hvr-content a img{
+    height: 20px;
+    width: 20px;
+  }
+  .projects-sec .projects-wrapper .project-item .hvr-content .theme-h5{
+    font-size: 22px;
+  }
+  .projects-sec .projects-wrapper .project-item .qr-code .ant-qrcode{
+    display: none;
   }
 }
 
@@ -1392,10 +1423,12 @@ header nav .nav-links li a.active::before {
     font-size: 30px;
     line-height: 36px;
   }
-  .theme-h2{
+
+  .theme-h2 {
     font-size: 26px;
     line-height: 30px;
   }
+
   .home-banner .theme-h1 svg {
     width: 85px;
     top: 8px;
@@ -1403,16 +1436,23 @@ header nav .nav-links li a.active::before {
   }
 
   .theme-p {
-    font-size: 16px;
-  }
-  .contact-aquire{
     font-size: 18px;
   }
-  .home-banner{
-  border-bottom: 1px dashed rgba(255, 255, 255, 0.2);
+
+  .theme-emp {
+    font-size: 18px;
+  }
+
+  .contact-aquire {
+    font-size: 18px;
+  }
+
+  .home-banner {
+    border-bottom: 1px dashed rgba(255, 255, 255, 0.2);
 
   }
-  .aquire-customer .aquire-ul .aquire-item p{
+
+  .aquire-customer .aquire-ul .aquire-item p {
     font-size: 16px;
   }
 }
