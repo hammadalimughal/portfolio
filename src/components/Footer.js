@@ -40,13 +40,13 @@ const Footer = () => {
         const formJson = await formRes.json()
         if (formJson.error) {
             messageApi.open({
-                key: 'form-submitting',
+                key: 'newsletter-submitting',
                 type: 'error',
                 content: formJson.error,
             });
         } else {
             messageApi.open({
-                key: 'form-submitting',
+                key: 'newsletter-submitting',
                 type: 'success',
                 content: 'Submitted!',
                 duration: 2,

@@ -14,10 +14,10 @@ const CreatingPortfolio = () => {
                             justifyContent: 'space-between',
                             alignItems: 'center'
                         }}>
-                            <Col span={10}>
+                            <Col md={10} xs={24}>
                                 <h2 className="theme-h2">Create your ideal Modern website.</h2>
                             </Col>
-                            <Col span={3}>
+                            <Col md={3} xs={24}>
                                 <span className="icon"><RightOutlined /></span>
                             </Col>
                         </Row>

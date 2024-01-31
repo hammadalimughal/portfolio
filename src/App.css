@@ -108,8 +108,7 @@ button:focus {
 .container-md,
 .container-sm {
   width: 100%;
-  padding-right: var(--bs-gutter-x, 0.75rem);
-  padding-left: var(--bs-gutter-x, 0.75rem);
+  max-width: 100%;
   margin-right: auto;
   margin-left: auto;
 }
@@ -517,7 +516,7 @@ header nav .nav-links li a.active::before {
   border-radius: 50%;
 } */
 
-.home-banner .img-wrapper::after {
+/* .home-banner .img-wrapper::after {
   content: '';
   position: absolute;
   right: 0;
@@ -528,9 +527,9 @@ header nav .nav-links li a.active::before {
   background-image: url(./images/terminal.png);
   background-size: contain;
   background-repeat: no-repeat;
-  /* filter: brightness(0) invert(1); */
+  filter: brightness(0) invert(1);
   background-position: center center;
-}
+} */
 
 .home-banner .img-wrapper .dots {
   position: absolute;
@@ -731,6 +730,8 @@ header nav .nav-links li a.active::before {
 .aquire-customer .aquire-ul .aquire-item p {
   font-size: 26px;
   color: #fff;
+  font-family: 'Inter', sans-serif;
+
 }
 
 .contact-aquire {
@@ -1056,6 +1057,10 @@ header nav .nav-links li a.active::before {
   border-radius: 5px;
 }
 
+.menu-bar {
+  display: none;
+}
+
 /* 
   font-family: 'Inter', sans-serif;
 */
@@ -1223,7 +1228,8 @@ header nav .nav-links li a.active::before {
     bottom: 0;
     flex-direction: column;
     justify-content: center;
-    width: 300px;
+    width: 400px;
+    max-width: 85%;
     background-color: rgba(0, 0, 0, 0.8);
     gap: 30px;
     backdrop-filter: blur(5px);
@@ -1247,7 +1253,7 @@ header nav .nav-links li a.active::before {
     width: 100vw;
     height: 100vh;
     transition: 0.5s;
-    transform: translateX(-100%);
+    transform: translateX(100%);
     overflow: hidden;
   }
 
@@ -1263,6 +1269,23 @@ header nav .nav-links li a.active::before {
   header nav .nav-links li a::before {
     background-color: var(--featured-color);
   }
+
+  .about-section .agency-ul {
+    font-size: 18px;
+  }
+
+  .about-section .border-left-about {
+    border-top: 1px dashed rgba(255, 255, 255, 0.2);
+    border-left: none;
+  }
+
+  .about-section::before {
+    display: none;
+  }
+
+  .footer-main .ant-row {
+    gap: 40px;
+  }
 }
 
 @media only screen and (max-width: 767px) {
@@ -1271,18 +1294,22 @@ header nav .nav-links li a.active::before {
     line-height: 44px;
     margin-bottom: 30px;
   }
+
   .theme-h2 {
     font-size: 34px;
     line-height: 34px;
-}
+  }
+
   .home-banner .theme-h1 svg {
     width: 126px;
     top: 15px;
     left: 14px;
   }
-  .creating-portfolio .content-wrapper .icon{
+
+  .creating-portfolio .content-wrapper .icon {
     bottom: 0;
   }
+
   .theme-p {
     font-size: 18px;
   }
@@ -1292,29 +1319,100 @@ header nav .nav-links li a.active::before {
   }
 
   .footer-main .theme-h5 {
-    margin-bottom: 30px;
+    margin-bottom: 20px;
   }
-  .newsletter-field{
+
+  .newsletter-field {
     max-width: 300px;
     margin: 0 auto;
   }
-  .footer-main{
+
+  .footer-main {
     text-align: center;
   }
-  .footer-main .contact-aquire{
+
+  .footer-main .contact-aquire {
     margin: 0 auto;
   }
-  .footer-main .social-links{
+
+  .footer-main .social-links {
     justify-content: center;
   }
-  .footer-copyright .theme-p{
+
+  .footer-copyright .theme-p {
     text-align: center;
   }
+
   .creating-portfolio .content-wrapper {
     padding: 36px 60px;
-}
+  }
+
+  .about-section .img-wrapper img {
+    height: 100vw;
+  }
 }
 
-@media only screen and (max-width: 575px) {}
+@media only screen and (max-width: 575px) {
+  :root {
+  --padding: 50px;
+  }
+  .container {
+    padding: 0 20px;
+  }
 
-@media only screen and (max-width: 519px) {}
+  .about-section::after {
+    right: 20px;
+    left: 20px;
+  }
+
+  .creating-portfolio .content-wrapper {
+    padding: 30px 50px;
+    border-radius: 0 60px;
+  }
+
+  .creating-portfolio .content-wrapper .icon {
+    margin-left: auto;
+    margin-top: 25px;
+    height: 80px;
+    width: 80px;
+    right: -30px;
+    top: 100%;
+    transform: translateY(-50%);
+}
+
+  .about-section .counter {
+    display: block;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+}
+
+@media only screen and (max-width: 519px) {
+  .theme-h1 {
+    font-size: 30px;
+    line-height: 36px;
+  }
+  .theme-h2{
+    font-size: 26px;
+    line-height: 30px;
+  }
+  .home-banner .theme-h1 svg {
+    width: 85px;
+    top: 8px;
+    left: 10px;
+  }
+
+  .theme-p {
+    font-size: 16px;
+  }
+  .contact-aquire{
+    font-size: 18px;
+  }
+  .home-banner{
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.2);
+
+  }
+  .aquire-customer .aquire-ul .aquire-item p{
+    font-size: 16px;
+  }
+}

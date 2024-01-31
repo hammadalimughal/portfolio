@@ -11,7 +11,7 @@ const About = () => {
                 <div className="hr-seperator"></div>
                 <div className="container">
                     <div className="wrapper">
-                        <Row gutter={140}>
+                        <Row gutter={{ md: 140, xs: 0 }}>
                             <Col className='border-right-about' xl={11}>
                                 <div className="content left-col">
                                     <h5 className="theme-h5">Skills Overview — </h5>
@@ -24,11 +24,11 @@ const About = () => {
                             </Col>
                             <Col xl={13}>
                                 <div className="right-col content">
-                                    <Row style={{ alignItems: 'center' }} gutter={[20, 20]}>
-                                        <Col span={12}>
+                                    <Row style={{ alignItems: 'center' }} gutter={{lg:20,xs:0}}>
+                                        <Col md={12} xs={24}>
                                             <span className="counter">100</span>
                                         </Col>
-                                        <Col span={12}>
+                                        <Col md={12} xs={24}>
                                             <h3 className="theme-h3">Responsive Websites Designs</h3>
                                             <p className="theme-p">I specializes in designing websites that adapt flawlessly to various screen sizes and devices, ensuring a seamless user experience across platforms.</p>
                                         </Col>
