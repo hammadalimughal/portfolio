@@ -54,7 +54,6 @@ const Footer = () => {
                 duration: 2,
             });
         }
-        console.log('formJson', formJson)
         setLoading(false)
     }
     return (

@@ -45,7 +45,6 @@ const About = () => {
         const playCounter = () => {
             if (isScrolledIntoView($(".counter")[0]) && counterPlayState.current) {
                 counterPlayState.current = false
-                console.log('counterPlayState', counterPlayState.current)
                 $(".counter").each(function (ind, elem) {
                     $(elem).jQuerySimpleCounter({ end: $(this).parent().data("counter-end"), duration: 1500 });
                 })

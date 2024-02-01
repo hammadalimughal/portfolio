@@ -67,7 +67,6 @@ const ContactForm = () => {
                 message: '',
             })
         }
-        console.log('formJson', formJson)
         setLoading(false)
         // }, 1000);
     }
