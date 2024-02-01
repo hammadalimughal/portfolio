@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useContext } from 'react'
 import { Col, Row, message } from 'antd'
-import contactImg from '../images/contact-form.avif'
+import contactImg from '../images/contact.jpg'
 import FloatingField from './FloatingField'
 import MessageField from './MessageField'
 import { RightOutlined, LoadingOutlined } from '@ant-design/icons'

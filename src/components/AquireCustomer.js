@@ -1,6 +1,6 @@
 import { Col, Row } from 'antd'
 import React from 'react'
-import aquire from '../images/aquire-customer.jpg'
+import aquire from '../images/me-2.jpg'
 import { RightOutlined } from '@ant-design/icons'
 import { Link } from 'react-router-dom'
 
@@ -13,11 +13,11 @@ const AquireCustomer = () => {
                         alignItems: 'center',
                         justifyContent: 'space-between'
                     }} gutter={[30,30]}>
-                        <Col lg={11}>
+                        <Col lg={14}>
                             <h2 className="theme-h2">Why Choose Hammad for Mobile Solutions</h2>
                             <p className="theme-p">Hammad’s expertise ensures that your mobile applications meet and exceed user expectations, whether it's individual apps or part of an integrated cross-platform solution.</p>
                         </Col>
-                        <Col lg={12}>
+                        <Col lg={9}>
                             <img className='aquire-img img-fluid' src={aquire} alt="" />
                         </Col>
                     </Row>

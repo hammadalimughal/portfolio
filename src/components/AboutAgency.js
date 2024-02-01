@@ -1,6 +1,7 @@
 import { Col, Row } from 'antd'
 import React from 'react'
-import aboutAgency from '../images/about-agency.avif'
+// import aboutAgency from '../images/about-agency.avif'
+import aboutAgency from '../images/me-3.jpg'
 import { Swiper, SwiperSlide } from 'swiper/react';
 import client1 from '../images/clients/1.png'
 import client2 from '../images/clients/2.png'

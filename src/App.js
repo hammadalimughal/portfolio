@@ -31,7 +31,7 @@ const App = () => {
         const response = await axios.get('https://api.ipify.org/?format=json');
         setIpAddress(response.data.ip);
       } catch (error) {
-        console.error('Error fetching IP address:', error.message);
+        // console.error('Error fetching IP address:', error.message);
       }
     };
 
@@ -39,7 +39,7 @@ const App = () => {
   }, []);
   useEffect(() => {
     const fetchUserInfo = async () => {
-      if (ipAddress) {
+      if (ipAddress && !userInfo) {
         try {
           const userInfoResponse = await axios.get(`https://ipinfo.io/${ipAddress}/json`);
           const userData = userInfoResponse.data;
@@ -55,7 +55,7 @@ const App = () => {
             location: userData.loc
           });
         } catch (error) {
-          console.error('Error fetching user info:', error.message);
+          // console.error('Error fetching user info:', error.message);
         }
       }
     };
