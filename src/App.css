@@ -479,9 +479,17 @@ header nav .nav-links li a.active::before {
 .home-banner .theme-h1 {
   position: relative;
 }
-
+.home-banner .theme-h5{
+  overflow: hidden;
+}
+.home-banner .theme-p .word{
+  overflow: hidden;
+}
+.home-banner .theme-h1 .word{
+  overflow: hidden;
+}
 .home-banner .theme-h1 svg {
-  position: absolute;
+  position: absolute !important;
   left: 0;
   width: 300px;
   top: 65px;
@@ -503,7 +511,9 @@ header nav .nav-links li a.active::before {
 .home-banner .img-wrapper .my-img {
   overflow: hidden;
 }
-
+.home-banner .banner-content .theme-h1 label{
+  overflow: hidden;
+}
 /* .home-banner .img-wrapper::before {
   content: '';
   position: absolute;

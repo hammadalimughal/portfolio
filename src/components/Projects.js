@@ -12,6 +12,7 @@ import project7 from '../images/projects/7.png'
 import project8 from '../images/projects/8.png'
 import project9 from '../images/projects/9.png'
 import project10 from '../images/projects/10.jpg'
+import project11 from '../images/projects/11.png'
 
 
 
@@ -44,8 +45,7 @@ const Projects = () => {
     },
     {
       img: project10,
-      title: 'Mizzle <span>Boy</span>',
-      // url: 'https://morale-matters.com/'
+      title: 'Mizzle <span>Boy</span>'
     },
     {
       img: project5,
@@ -66,6 +66,10 @@ const Projects = () => {
       img: project8,
       title: 'Morale <span>Matters</span>',
       url: 'https://morale-matters.com/'
+    },
+    {
+      img: project11,
+      title: 'Analytics <span>Dashboard</span>'
     }
   ]
   return (

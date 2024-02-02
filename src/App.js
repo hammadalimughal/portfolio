@@ -22,21 +22,21 @@ const App = () => {
       window.scrollTo(0, 0);
     }
   }, [location]);
-  useEffect(() => {
-    const script = document.createElement('script');
-    script.async = true;
-    script.src = 'https://www.googletagmanager.com/gtag/js?id=G-M77YYS1KYN';
-    document.body.appendChild(script);
+  // useEffect(() => {
+  //   const script = document.createElement('script');
+  //   script.async = true;
+  //   script.src = 'https://www.googletagmanager.com/gtag/js?id=G-M77YYS1KYN';
+  //   document.body.appendChild(script);
 
-    const gtagScript = document.createElement('script');
-    gtagScript.innerHTML = `
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-M77YYS1KYN');
-      `;
-    document.body.appendChild(gtagScript);
-  }, []);
+  //   const gtagScript = document.createElement('script');
+  //   gtagScript.innerHTML = `
+  //       window.dataLayer = window.dataLayer || [];
+  //       function gtag(){dataLayer.push(arguments);}
+  //       gtag('js', new Date());
+  //       gtag('config', 'G-M77YYS1KYN');
+  //     `;
+  //   document.body.appendChild(gtagScript);
+  // }, []);
   useEffect(() => {
     setLoading(20);
   }, [location.pathname]);
