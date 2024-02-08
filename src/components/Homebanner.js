@@ -12,6 +12,8 @@ const Homebanner = () => {
     const bannerText = useRef(null)
     const bannerTagline = useRef(null)
     const bannerpara = useRef(null)
+    const bannerLink = useRef(null)
+    const bannerLinkReveal = useRef(null)
     const image = useRef(null)
     useEffect(() => {
         gsap.fromTo(image.current, {
@@ -20,7 +22,7 @@ const Homebanner = () => {
             y: "0",
             delay: 2,
             duration: 1
-        })        
+        })
     }, [])
     useEffect(()=>{
         const title = new SplitType(bannerText.current)
@@ -50,6 +52,22 @@ const Homebanner = () => {
             duration: 1,
             stagger: 0
         })
+        gsap.fromTo(bannerLinkReveal.current, {
+            width: '100%'
+        }, {
+            width: '0',
+            delay: 3,
+            duration: 1,
+            stagger: 0
+        })
+        gsap.fromTo(bannerLink.current, {
+            x: "-100%"
+        }, {
+            x: "0",
+            delay: 2,
+            duration: 1,
+            stagger: 0
+        })
     },[])
     return (
         <>
@@ -65,8 +83,11 @@ const Homebanner = () => {
                                     MERN Stack 
                                     Developer  <br /> Web <span>Enthusiast</span></h1>
                                 <p ref={bannerpara} className="theme-p">Hello, I'm <strong>Hammad Ali</strong>, a passionate and results-driven <strong>Web & Mobile App</strong> Developer having <strong>3+</strong> years of experience. With a strong foundation in web development, I specialize inbuilding  <strong>modern and intuitive</strong> digital experiences.</p>
-                                
-                                <Link to="/contact" className="contact-aquire">Hire Me <RightOutlined /></Link>
+                                <div className="link-wrapper">                                    
+                                    <Link ref={bannerLink} to="/contact" className="contact-aquire">
+                                    <div ref={bannerLinkReveal} className="reveal"></div>
+                                        Hire Me <RightOutlined /></Link>
+                                </div>
                             </Col>
                             <Col lg={8} xs={100}>
                                 <div className="img-wrapper">
