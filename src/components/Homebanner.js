@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react'
-import bannerImg from '../images/me.png'
+import bannerImg from '../images/me.webp'
 import dots from '../images/dots.png'
 import { Row, Col } from 'antd'
 import { Link } from 'react-router-dom'
