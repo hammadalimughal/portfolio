@@ -5,6 +5,7 @@ import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
 import { LoaderProvider } from './context/Loading';
 import { UserInfoProvider } from './context/UserInfo';
+import { Analytics } from '@vercel/analytics/react';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -14,6 +15,7 @@ root.render(
       <LoaderProvider>
         <UserInfoProvider>
           <App />
+          <Analytics />
         </UserInfoProvider>
       </LoaderProvider>
     </BrowserRouter>
