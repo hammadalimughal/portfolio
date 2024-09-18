@@ -3,16 +3,27 @@ import { Col, Row, QRCode, Image } from 'antd';
 import parse from 'html-react-parser';
 import linkImage from '../images/link-square.svg'
 import project1 from '../images/projects/1.jpg'
+import projectThumbnail1 from '../images/projects/1.jpg'
 import project2 from '../images/projects/2.jpg'
+import projectThumbnail2 from '../images/projects/2-thumb.jpg'
 import project3 from '../images/projects/3.jpg'
+import projectThumbnail3 from '../images/projects/3-thumb.jpg'
 import project4 from '../images/projects/4.jpg'
-import project5 from '../images/projects/5.png'
-import project6 from '../images/projects/6.png'
-import project7 from '../images/projects/7.png'
-import project8 from '../images/projects/8.png'
-import project9 from '../images/projects/9.png'
+import projectThumbnail4 from '../images/projects/4-thumb.jpg'
+import project5 from '../images/projects/5.jpg'
+import projectThumbnail5 from '../images/projects/5-thumb.jpg'
+import project6 from '../images/projects/6.jpg'
+import projectThumbnail6 from '../images/projects/6-thumb.jpg'
+import project7 from '../images/projects/7.jpg'
+import projectThumbnail7 from '../images/projects/7-thumb.jpg'
+import project8 from '../images/projects/8.jpg'
+import projectThumbnail8 from '../images/projects/8-thumb.jpg'
+import project9 from '../images/projects/9.jpg'
+import projectThumbnail9 from '../images/projects/9-thumb.jpg'
 import project10 from '../images/projects/10.jpg'
-import project11 from '../images/projects/11.png'
+import projectThumbnail10 from '../images/projects/10-thumb.jpg'
+import project11 from '../images/projects/11.jpg'
+import projectThumbnail11 from '../images/projects/11-thumb.jpg'
 
 
 
@@ -20,55 +31,66 @@ const Projects = () => {
   const projectData = [
     {
       img: project1,
+      thumbnail: projectThumbnail1,
       title: 'Baba <span>Platters</span>',
       url: 'https://codemark-babaplatter.netlify.app/'
     },
     {
       img: project3,
+      thumbnail: project3,
       title: 'Photo <span>Bazaar</span>',
       url: 'https://codemark-photobazaar.netlify.app/'
     },
     {
       img: project2,
+      thumbnail: project2,
       title: 'Texas Apartment <span>Experts</span>',
       url: 'https://codemark-texasapartment.netlify.app/'
     },
     {
       img: project7,
+      thumbnail: project7,
       title: 'Near <span>Buys</span>',
       url: 'https://codemark-nearbuys.netlify.app/'
     },
     {
       img: project4,
+      thumbnail: project4,
       title: 'Pet Shop <span>Box</span>',
       url: 'https://codemark-petshopbox.netlify.app/'
     },
     {
       img: project10,
+      thumbnail: project10,
       title: 'Mizzle <span>Boy</span>'
     },
     {
       img: project5,
+      thumbnail: project5,
       title: 'Cozy With <span>Character</span>',
       url: 'https://codemark-cozy-with-character.netlify.app/'
     },
     {
       img: project9,
+      thumbnail: project9,
       title: 'Analyix <span>Investigator</span>',
       url: 'https://htmldigitaltest.site/analyx-investigator/'
     },
     {
       img: project6,
+      thumbnail: project6,
       title: 'Talk to <span>CFI</span>',
       url: 'https://talk-to-cfi-codemark.netlify.app/'
     },
     {
       img: project8,
+      thumbnail: project8,
       title: 'Morale <span>Matters</span>',
       url: 'https://morale-matters.com/'
     },
     {
       img: project11,
+      thumbnail: project11,
       title: 'Analytics <span>Dashboard</span>'
     }
   ]
@@ -95,7 +117,11 @@ const Projects = () => {
                         </a>}
 
                       </div>
-                      <Image className='img-fluid' src={project.img} alt={project.title} />
+                      <Image className='img-fluid' src={project.thumbnail}
+                      preview={{
+                        src: project.img,
+                      }}
+                       alt={project.title} />
                     </div>
                   </Col>
                 )
